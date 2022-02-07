@@ -1,23 +1,31 @@
+let books = [];
 class Book {
-   static id = -1;
+  static id = -1;
 
-   constructor(title, author) {
-     this.title = title;
-     this.author = author;
-     Book.id += 1;
-     this.idx = Book.id;
-   }
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    Book.id += 1;
+    this.idx = Book.id;
+  }
 }
 
-let books = [];
+function setInputs() {
+  books = JSON.parse(localStorage.getItem('books'));
+}
+
+function populateStorage() {
+  localStorage.setItem('books', JSON.stringify(books));
+  setInputs();
+}
 
 function addBook(title, author) {
   const book = new Book(title, author);
   books.push(book);
 }
 
-function remove(index) {
-  books = books.filter(item, (idx) => idx !== index);
+function remove(id) {
+  books = books.filter((item) => item.idx !== parseInt(id, 10));
 }
 
 /* events */
@@ -34,15 +42,21 @@ function displayBooks(bookList) {
     booksContainer.innerHTML += `<li>
                                     <h2>${book.title}</h2>
                                     <h2>${book.author}</h2>
-                                    <button onclick=remove(${book.idx})>Remove</button>
+                                    <button id=${book.idx} class='remove'>Remove</button>
                                     <hr />
                                     </li>`;
   });
+
+  const removeButtons = document.querySelectorAll('.remove');
+
+  removeButtons.forEach((rb) => rb.addEventListener('click', () => {
+    remove(rb.id);
+    populateStorage();
+    displayBooks(books);
+  }));
 }
 if (document.readyState !== 'loading') {
-  
-    displayBooks(books);
-    
+  displayBooks(books);
 } else {
   document.addEventListener('DOMContentLoaded', () => {
     displayBooks(books);
@@ -51,15 +65,13 @@ if (document.readyState !== 'loading') {
 
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log('after submit', books);
   displayBooks(books);
 });
 
-addBookButton.addEventListener('click', (e) => {
+addBookButton.addEventListener('click', () => {
   addBook(bookTitle.value, bookAuthor.value);
-  populateStorage()
+  populateStorage();
 });
-
 
 // Local storage
 function storageAvailable(type) {
@@ -84,16 +96,6 @@ function storageAvailable(type) {
             // acknowledge QuotaExceededError only if there's something already stored
             && (storage && storage.length !== 0);
   }
-}
-
-function setInputs() {
-  books = JSON.parse(localStorage.getItem('books')); 
-}
-
-function populateStorage() {
-
-  localStorage.setItem('books', JSON.stringify(books));
-  setInputs();
 }
 
 if (storageAvailable('localStorage')) {
