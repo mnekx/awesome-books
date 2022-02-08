@@ -27,10 +27,11 @@ class BookCollection {
     booksContainer.innerHTML = '';
     this.books.forEach((book) => {
       booksContainer.innerHTML += `<li>
-                                      <h2>${book.title}</h2>
-                                      <h2>${book.author}</h2>
-                                      <button id=${book.idx} class='remove'>Remove</button>
-                                      <hr />
+                                      <span>"${book.title}"&nbsp;
+                                      by &nbsp;&nbsp;
+
+                                      ${book.author}</span>
+                                      <button id=${book.idx} class=' btn remove'>Remove</button>
                                       </li>`;
     });
   

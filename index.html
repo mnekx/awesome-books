@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesonme Books</title>
+    <link rel="stylesheet" href="./css/main.css"/>
   </head>
   <body>
     <main>
@@ -15,15 +16,19 @@
         <ul class="books">
           
         </ul>
+        <hr/>
         <form action="#">
+          <fieldset >
+            <legend>Add new book</legend>
           <label for="title">
             <input type="text" placeholder="Title" id="title" />
           </label>
           <label for="author">
             <input type="text" placeholder="Author" id="author" />
           </label>
-          <button id="add-book">Add</button>
-        </form>
+          <button id="add-book" class="btn add-btn">Add</button>
+        </fieldset>
+      </form>
       </section>
     </main>
     <script src="./js/dynamics.js"></script>
