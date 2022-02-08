@@ -28,6 +28,57 @@ function remove(id) {
   books = books.filter((item) => item.idx !== parseInt(id, 10));
 }
 
+class Node {
+  constructor(data = null, next = null) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+class LinkedList {
+  constructor(head = null, tail = null) {
+    // super()
+    this.head = head;
+    this.tail = tail;
+    this.length = 0;
+  }
+
+  addEnd(data) {
+    const newNode = new Node(data);
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.length += 1;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+      this.length += 1;
+    }
+  }
+
+  remove(id) {
+    let temp = this.head;
+    if (this.head.data.idx === parseInt(id, 10)) {
+      this.head = this.head.next;
+    } else {
+      while (temp.next !== null) {
+        if (temp.next.data.idx === parseInt(id, 10)) {
+          temp.next = temp.next.next;
+          return;
+        }
+        temp = temp.next;
+      }
+    }
+  }
+
+  display() {
+    let temp = this.head;
+    while (temp !== null) {
+      temp = temp.next;
+    }
+  }
+}
+
 /* events */
 
 const booksContainer = document.querySelector('.books');
