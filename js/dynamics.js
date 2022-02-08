@@ -1,4 +1,3 @@
-let books = [];
 class Book {
   static id = -1;
 
@@ -10,117 +9,87 @@ class Book {
   }
 }
 
-function setInputs() {
-  books = JSON.parse(localStorage.getItem('books'));
-}
-
-function populateStorage() {
-  localStorage.setItem('books', JSON.stringify(books));
-  setInputs();
-}
-
-function addBook(title, author) {
-  const book = new Book(title, author);
-  books.push(book);
-}
-
-function remove(id) {
-  books = books.filter((item) => item.idx !== parseInt(id, 10));
-}
-
-class Node {
-  constructor(data = null, next = null) {
-    this.data = data;
-    this.next = next;
-  }
-}
-
-class LinkedList {
-  constructor(head = null, tail = null) {
-    // super()
-    this.head = head;
-    this.tail = tail;
-    this.length = 0;
+class BookCollection {
+  constructor() {
+    this.books = [];
   }
 
-  addEnd(data) {
-    const newNode = new Node(data);
-    if (this.head === null) {
-      this.head = newNode;
-      this.tail = newNode;
-      this.length += 1;
-    } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
-      this.length += 1;
-    }
+  add(title, author) {
+    let newBook = new Book(title, author);
+    this.books.push(newBook);
   }
 
   remove(id) {
-    let temp = this.head;
-    if (this.head.data.idx === parseInt(id, 10)) {
-      this.head = this.head.next;
-    } else {
-      while (temp.next !== null) {
-        if (temp.next.data.idx === parseInt(id, 10)) {
-          temp.next = temp.next.next;
-          return;
-        }
-        temp = temp.next;
-      }
-    }
+    this.books = this.books.filter(book=>book.idx !== parseInt(id, 10));
   }
 
-  display() {
-    let temp = this.head;
-    while (temp !== null) {
-      temp = temp.next;
-    }
+  displayBooks(bookList) {
+    booksContainer.innerHTML = '';
+    this.books.forEach((book) => {
+      booksContainer.innerHTML += `<li>
+                                      <h2>${book.title}</h2>
+                                      <h2>${book.author}</h2>
+                                      <button id=${book.idx} class='remove'>Remove</button>
+                                      <hr />
+                                      </li>`;
+    });
+  
+    const removeButtons = document.querySelectorAll('.remove');
+  
+    removeButtons.forEach((rb) => rb.addEventListener('click', () => {
+      this.remove(rb.id);
+      populateStorage();
+      this.displayBooks();
+    }));
   }
+
+  getBooks() {
+    return this.books
+  }
+
+  setBooks(books) {
+this.books = books;
+  }
+}
+
+
+
+function setInputs() {
+  booksArr = JSON.parse(localStorage.getItem('books'));
+  books.setBooks(booksArr);
+}
+
+function populateStorage() {
+  localStorage.setItem('books', JSON.stringify(books.getBooks()));
+  setInputs();
 }
 
 /* events */
 
+let books;
 const booksContainer = document.querySelector('.books');
 const addBookButton = document.querySelector('#add-book');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookForm = document.querySelector('form');
 
-function displayBooks(bookList) {
-  booksContainer.innerHTML = '';
-  bookList.forEach((book) => {
-    booksContainer.innerHTML += `<li>
-                                    <h2>${book.title}</h2>
-                                    <h2>${book.author}</h2>
-                                    <button id=${book.idx} class='remove'>Remove</button>
-                                    <hr />
-                                    </li>`;
-  });
-
-  const removeButtons = document.querySelectorAll('.remove');
-
-  removeButtons.forEach((rb) => rb.addEventListener('click', () => {
-    remove(rb.id);
-    populateStorage();
-    displayBooks(books);
-  }));
-}
 if (document.readyState !== 'loading') {
-  displayBooks(books);
+  books = new BookCollection();
+  books.displayBooks();
 } else {
+  books = new BookCollection();
   document.addEventListener('DOMContentLoaded', () => {
-    displayBooks(books);
+    books.displayBooks();
   });
 }
 
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  displayBooks(books);
+  books.displayBooks();
 });
 
 addBookButton.addEventListener('click', () => {
-  addBook(bookTitle.value, bookAuthor.value);
+  books.add(bookTitle.value, bookAuthor.value);
   populateStorage();
 });
 
