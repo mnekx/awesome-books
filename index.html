@@ -5,32 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesonme Books</title>
-    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
+    <header>
+      <nav>
+        <a href="./index.html"><strong>Awesome Books</strong></a>
+        <ul>
+          <li><a href="" class="nav-link">List</a></li>
+          <li><a href="" class="nav-link">Add new</a></li>
+          <li><a href="" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
-      <section>
+      <section id="main-section">
         <hgroup>
           <h1>Awesome Books</h1>
         </hgroup>
-        <ul class="books">
-          
-        </ul>
-        <hr/>
+        <ul class="books"></ul>
+        <hr />
         <form action="#">
-          <fieldset >
+          <fieldset>
             <legend>Add new book</legend>
-          <label for="title">
-            <input type="text" placeholder="Title" id="title" />
-          </label>
-          <label for="author">
-            <input type="text" placeholder="Author" id="author" />
-          </label>
-          <button id="add-book" class="btn add-btn">Add</button>
-        </fieldset>
-      </form>
+            <label for="title">
+              <input type="text" placeholder="Title" id="title" />
+            </label>
+            <label for="author">
+              <input type="text" placeholder="Author" id="author" />
+            </label>
+            <button id="add-book" class="btn add-btn">Add</button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="contact-section"></section>
+      <section id="new-book-section">
+        <form action="#">
+          <fieldset>
+            <legend>Add new book</legend>
+            <label for="title">
+              <input type="text" placeholder="Title" id="title" />
+            </label>
+            <label for="author">
+              <input type="text" placeholder="Author" id="author" />
+            </label>
+            <button id="add-book" class="btn add-btn">Add</button>
+          </fieldset>
+        </form>
       </section>
     </main>
+    <footer><strong>Copyright</strong></footer>
     <script src="./js/dynamics.js"></script>
   </body>
 </html>
