@@ -45,16 +45,32 @@ function populateStorage() {
 }
 /* events */
 
-const booksContainer = document.querySelector('.books');
+
 const addBookButton = document.querySelector('#add-book');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookForm = document.querySelector('form');
+const mainSection=document.querySelector('#main-section');
+const empty=document.querySelector('.empty');
 
 function displayBooks() {
-  booksContainer.innerHTML = '';
-  bookCollection.books.forEach((book) => {
-    booksContainer.innerHTML += `<li>
+  if(document.querySelector('.books')) {
+      mainSection.removeChild(document.querySelector('.books'));
+    }
+
+  if(bookCollection.books.length===0){
+     empty.innerHTML=`Book list is empty!!`;
+
+  }else{
+    empty.innerHTML=``;
+   const booksContainer = document.createElement('ul');
+   booksContainer.classList.add('books');
+  
+    mainSection.appendChild(booksContainer);
+    bookCollection.books.forEach((book) => {
+    booksContainer.innerHTML += `
+                 
+                                   <li>
                                     <span>"${book.title}"&nbsp;
                                     by &nbsp;&nbsp;
 
@@ -62,6 +78,7 @@ function displayBooks() {
                                     <button id=${book.idx} class=' btn remove'>Remove</button>
                                     </li>`;
   });
+}
 
   const removeButtons = document.querySelectorAll('.remove');
 
@@ -88,6 +105,8 @@ bookForm.addEventListener('submit', (e) => {
 addBookButton.addEventListener('click', () => {
   bookCollection.add(bookTitle.value, bookAuthor.value);
   populateStorage();
+  bookTitle.value='';
+  bookAuthor.value='';
 });
 
 // Local storage
@@ -123,3 +142,17 @@ if (storageAvailable('localStorage')) {
     setInputs();
   }
 }
+
+
+const navLinks = document.querySelectorAll('.nav-link');
+const  content = document.querySelectorAll('.content');
+navLinks.forEach(link=>link.addEventListener('click',function(e){
+    e.preventDefault();
+    console.log('link clicked',link);
+    content.forEach(item=>{item.classList.remove('show');
+                           item.classList.add('hide');});
+    const  selectedSection = document.querySelector('.'+link.id+'');
+    selectedSection.classList.remove('hide');
+    selectedSection.classList.add('show');
+}));
+

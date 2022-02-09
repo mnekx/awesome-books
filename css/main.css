@@ -34,19 +34,23 @@ section {
   width: 60%;
 }
 
-ul {
+.main-section-class ul,
+nav ul {
   margin: 5vh auto;
   width: 80%;
   list-style: none;
+  min-height: 10vh;
 }
 
 nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 0;
+  
 }
 
-li {
+.main-section-class li,
+nav li {
   display: flex;
   font-size: small;
   font-weight: 550;
@@ -116,20 +120,27 @@ footer {
 }
 
 #main-section li:nth-child(even) {
-  background-color: gray;
+  background-color: #DDDDDD;
 }
+
 
 /* Single page App */
-#contact-section,
-#new-book-section,
-#main-section {
-  display: none;
+.contact-section-class,
+.new-book-section-class,
+.main-section-class {
   position: absolute;
-  top: 0;
-  left: 0;
   min-height: 75vh;
+  justify-content: center;
 }
 
-#main-section {
-  display: block;
+.hide {
+  display: none;
+}
+.show {
+  display: flex;
+}
+
+#contact-section{
+  flex-direction: column;
+  justify-content: space-evenly;
 }
