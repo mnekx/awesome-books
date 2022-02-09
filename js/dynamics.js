@@ -156,3 +156,8 @@ navLinks.forEach(link=>link.addEventListener('click',function(e){
     selectedSection.classList.add('show');
 }));
 
+
+const todayDate = document.querySelector('#date');
+setInterval(() => {
+  todayDate.innerHTML = new Date();
+}, 1000);

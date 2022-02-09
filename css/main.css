@@ -100,7 +100,7 @@ input {
 }
 
 footer {
-  margin-top: 70vh;
+  margin-top: 60vh;
 }
 
 .btn {
@@ -120,16 +120,15 @@ footer {
 }
 
 #main-section li:nth-child(even) {
-  background-color: #DDDDDD;
+  background-color: #dddddd;
 }
-
 
 /* Single page App */
 .contact-section-class,
 .new-book-section-class,
 .main-section-class {
   position: absolute;
-  min-height: 75vh;
+  min-height: 60vh;
   justify-content: center;
 }
 
@@ -143,4 +142,9 @@ footer {
 #contact-section{
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+#date {
+  margin-top: 1rem;
+  text-align: end;
 }
