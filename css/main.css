@@ -1,156 +1,68 @@
-@import url('https://fonts.cdnfonts.com/css/lato-light');
-
 * {
   box-sizing: border-box;
-  padding: 0%;
-  margin: 0%;
-  font-family: 'lato', sans-serif;
 }
 
 body {
-  padding: 1.5vh 3vh;
-}
-
-nav,
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.5rem 1rem;
-  border: 2px solid black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 main {
-  padding-top: 10vh;
-  display: flex;
-  justify-content: center;
   position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
+nav {
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+a {
+  text-decoration: none;
 }
 
 nav ul {
-  display: flex;
-  justify-content: flex-end;
-  margin: 3vh auto;
-  width: 80%;
   list-style: none;
+  margin: 0;
 }
 
 nav li {
-  display: flex;
-  font-size: small;
-  font-weight: 550;
-  justify-content: space-between;
-  padding: 0.5%  2%;
-  align-items: center;
   border-right: 1px solid black;
 }
 
 nav li:last-of-type {
-  border: none;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-hr {
-  width: 20%;
-  border: 2px solid black;
-  margin-bottom: 2vh;
-}
-
-fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 30vh;
-  justify-content: space-evenly;
-}
-
-legend {
-  font-weight: 700;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-input {
-  border: 2px solid black;
-  padding-left: 2%;
+  border-right: none;
 }
 
 footer {
-  margin-top: 60vh;
+  position: absolute;
+  bottom: 0;
 }
 
-.btn {
-  background-color: white;
-  border: 2px solid black;
-  box-shadow: 2px 2px black;
-  padding: 0.5%;
-}
-
-.add-btn {
-  width: fit-content;
-  align-self: flex-end;
-}
-
-.books {
-  border: 2px solid black;
+.content {
+width: 80%;
+  position: absolute;
+  top: 0;
+  transition: left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #main-section ul {
-  margin: 5vh auto;
-  width: 80%;
   list-style: none;
-  min-height: 10vh;
+  width: 100%;
+  padding: 0;
+  border: 1px solid black;
 }
 
 #main-section li {
-  display: flex;
-  font-size: small;
-  font-weight: 550;
   justify-content: space-between;
-  padding: 0.5%  2%;
-  align-items: center;
+  align-items: baseline;
+  padding: .2rem;
 }
 
 #main-section li:nth-child(even) {
-  background-color: #ddd;
-}
-
-/* Single page App */
-.contact-section-class,
-.new-book-section-class,
-.main-section-class {
-  position: absolute;
-  min-height: 60vh;
-  justify-content: center;
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: flex;
-}
-
-#contact-section {
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-#date {
-  margin-top: 1rem;
-  text-align: end;
+  background-color: #dddddd;
 }

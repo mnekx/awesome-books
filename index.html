@@ -5,36 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesonme Books</title>
+    <link rel="stylesheet" href="./css/utility.css" />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="d-flex">
         <a href="./index.html"><strong>Awesome Books</strong></a>
-        <ul>
-          <li><a href="" class="nav-link" id="main-section-class">List</a></li>
+        <ul class="d-flex">
+          <li><a href="" class="nav-link">List</a></li>
           <li>
-            <a href="" class="nav-link" id="new-book-section-class">Add new</a>
+            <a href="" class="nav-link">Add new</a>
           </li>
           <li>
-            <a href="" class="nav-link" id="contact-section-class">Contact</a>
+            <a href="" class="nav-link">Contact</a>
           </li>
         </ul>
       </nav>
       <p id="date"></p>
     </header>
-    <main>
-      <section id="main-section" class="content main-section-class show">
+    <main class="d-flex">
+      <section id="main-section" class="content d-flex">
         <hgroup>
-          <h1>Awesome Books</h1>
+          <h1>All Awesome Books</h1>
         </hgroup>
         <p class="empty"></p>
-      </section>
 
-      <section
-        id="new-book-section"
-        class="content new-book-section-class hide"
-      >
+        <ul>
+          <li class="d-flex">
+            <span>'title' by 'author'</span>
+            <button class="btn btn-danger">Remove</button>
+          </li>
+          <li class="d-flex">
+            <span>'title' by 'author'</span>
+            <button class="btn btn-danger">Remove</button>
+          </li>
+          <li class="d-flex">
+            <span>'title' by 'author'</span>
+            <button class="btn btn-danger">Remove</button>
+          </li>
+          <li class="d-flex">
+            <span>'title' by 'author'</span>
+            <button class="btn btn-danger">Remove</button>
+          </li>
+          <li class="d-flex">
+            <span>'title' by 'author'</span>
+            <button class="btn btn-danger">Remove</button>
+          </li>
+          <li class="d-flex">
+            <span>'title' by 'author'</span>
+            <button class="btn btn-danger">Remove</button>
+          </li>
+        </ul>
         <form action="#">
           <fieldset>
             <legend>Add new book</legend>
@@ -48,7 +70,22 @@
           </fieldset>
         </form>
       </section>
-      <section id="contact-section" class="content contact-section-class hide">
+
+      <section id="new-book-section" class="content content-hide d-flex">
+        <form action="#">
+          <fieldset>
+            <legend>Add new book</legend>
+            <label for="title">
+              <input type="text" placeholder="Title" id="title" />
+            </label>
+            <label for="author">
+              <input type="text" placeholder="Author" id="author" />
+            </label>
+            <button id="add-book" class="btn add-btn">Add</button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="contact-section" class="content content content-hide d-flex">
         <h1>Contact information</h1>
         <p>
           Do have any questions or just want to say "Hello"? you can reach out

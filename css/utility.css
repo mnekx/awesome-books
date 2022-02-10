@@ -1,0 +1,41 @@
+.d-flex {
+    display: flex;
+}
+
+.active {
+    color: blueviolet;
+}
+
+.nav-link {
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+}
+
+.btn {
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: .1rem;
+    box-shadow: 2px 3px 2px black;
+    color: black;
+    border: 1px black solid;
+}
+
+.btn:hover {
+    color: white;
+    background-color: brown;
+}
+
+.btn-danger:hover {
+    color: white;
+    background-color: red;
+}
+
+.content-hide {
+    left: -105%;
+}
+
+.content-show {
+    left: 10%;
+}
