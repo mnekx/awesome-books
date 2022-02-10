@@ -3,7 +3,8 @@
 }
 
 body {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  font-family: 'Rowdies', cursive;
 }
 
 main {
@@ -41,7 +42,7 @@ footer {
 }
 
 .content {
-width: 80%;
+  width: 80%;
   position: absolute;
   top: 0;
   transition: left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -60,9 +61,9 @@ width: 80%;
 #main-section li {
   justify-content: space-between;
   align-items: baseline;
-  padding: .2rem;
+  padding: 0.2rem;
 }
 
 #main-section li:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }

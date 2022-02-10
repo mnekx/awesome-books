@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesonme Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/utility.css" />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
@@ -60,13 +66,15 @@
         <form action="#">
           <fieldset>
             <legend>Add new book</legend>
-            <label for="title">
-              <input type="text" placeholder="Title" id="title" />
+            <label for="add-title">
+              <input type="text" placeholder="Title" id="add-title" />
             </label>
-            <label for="author">
-              <input type="text" placeholder="Author" id="author" />
+            <label for="add-author">
+              <input type="text" placeholder="Author" id="add-author" />
             </label>
-            <button id="add-book" class="btn add-btn">Add</button>
+            <button id="add-add-book" type="button" class="btn add-btn">
+              Add
+            </button>
           </fieldset>
         </form>
       </section>
@@ -81,7 +89,7 @@
             <label for="author">
               <input type="text" placeholder="Author" id="author" />
             </label>
-            <button id="add-book" class="btn add-btn">Add</button>
+            <button id="add-book" type="button" class="btn add-btn">Add</button>
           </fieldset>
         </form>
       </section>
