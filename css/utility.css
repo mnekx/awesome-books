@@ -38,3 +38,11 @@
 .content-show {
   left: 10%;
 }
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}

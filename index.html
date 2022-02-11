@@ -35,9 +35,9 @@
         <hgroup>
           <h1>All Awesome Books</h1>
         </hgroup>
-        <p class="empty"></p>
+        <!-- <p>List is Empty!</p>
 
-        <ul>
+        <ul id="book-list">
           <li class="d-flex">
             <span>'title' by 'author'</span>
             <button class="btn btn-danger">Remove</button>
@@ -62,34 +62,20 @@
             <span>'title' by 'author'</span>
             <button class="btn btn-danger">Remove</button>
           </li>
-        </ul>
-        <form action="#">
-          <fieldset>
-            <legend>Add new book</legend>
-            <label for="add-title">
-              <input type="text" placeholder="Title" id="add-title" />
-            </label>
-            <label for="add-author">
-              <input type="text" placeholder="Author" id="add-author" />
-            </label>
-            <button id="add-add-book" type="button" class="btn add-btn">
-              Add
-            </button>
-          </fieldset>
-        </form>
+        </ul> -->
       </section>
 
       <section id="new-book-section" class="content content-hide d-flex">
-        <form action="#">
+        <form id="add-book-form" action="#">
           <fieldset>
             <legend>Add new book</legend>
             <label for="title">
-              <input type="text" placeholder="Title" id="title" />
+              <input type="text" placeholder="Title" id="title" required />
             </label>
             <label for="author">
-              <input type="text" placeholder="Author" id="author" />
+              <input type="text" placeholder="Author" id="author" required />
             </label>
-            <button id="add-book" type="button" class="btn add-btn">Add</button>
+            <button id="add-book" type="submit" class="btn add-btn">Add</button>
           </fieldset>
         </form>
       </section>
