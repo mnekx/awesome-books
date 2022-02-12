@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 let navLinks = document.querySelectorAll('.nav-link');
 let contentSections = document.querySelectorAll('.content');
 const mainSection = document.querySelector('#main-section');
