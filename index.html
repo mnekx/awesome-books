@@ -7,8 +7,10 @@
     <title>Awesonme Books</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/utility.css" />
@@ -17,7 +19,7 @@
   <body>
     <header>
       <nav class="d-flex">
-        <a href="./index.html"><strong>Awesome Books</strong></a>
+        <a href="./index.html" class="logo"><strong>Awesome Books</strong></a>
         <ul class="d-flex">
           <li><a href="" class="nav-link">List</a></li>
           <li>
@@ -67,7 +69,7 @@
 
       <section id="new-book-section" class="content content-hide d-flex">
         <form id="add-book-form" action="#">
-          <fieldset>
+          <fieldset class="d-flex">
             <legend>Add new book</legend>
             <label for="title">
               <input type="text" placeholder="Title" id="title" required />

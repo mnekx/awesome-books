@@ -2,14 +2,24 @@
   display: flex;
 }
 
-.active {
-  color: blueviolet;
+.logo {
+  color: black;
 }
 
 .nav-link {
   display: inline-block;
   width: 100%;
   padding: 0.5rem;
+  color: black;
+}
+
+.active {
+  color: blueviolet;
+}
+
+.nav-link:hover {
+  color: red;
+  cursor: pointer;
 }
 
 .btn {

@@ -6,11 +6,6 @@ const addBookBtn = document.querySelector('#add-book');
 const addBookForm = document.querySelector('#add-book-form');
 let removebtns = document.querySelectorAll('.btn-remove');
 
-function populateStorage() {
-  localStorage.setItem('books', JSON.stringify(books.getBooks()));
-  // setInputs();
-}
-
 class Book {
     static counter = 0;
 
@@ -92,15 +87,26 @@ class BookCollection {
         // liToremove.classList.remove('d-flex');
         setTimeout(() => { liToremove.remove(); }, 1000);
         if (this.collection.length === 0) { this.renderList(); }
-        populateStorage();
+        this.populateStorage();
       });
     });
+  }
+
+  populateStorage() {
+    localStorage.setItem('books', JSON.stringify(this.getBooks()));
+    // setInputs();
+  }
+
+  setInputs() {
+    const booksArr = JSON.parse(localStorage.getItem('books'));
+    this.setBooks(booksArr);
   }
 }
 
 navLinks = Array.from(navLinks);
 contentSections = Array.from(contentSections);
 navLinks.forEach((link, key) => {
+  link.classList.remove('active');
   contentSections.forEach((section) => {
     section.classList.remove('content-show');
     // section.classList.add('content-hide')
@@ -109,6 +115,11 @@ navLinks.forEach((link, key) => {
     case 0: // List link selected
       link.addEventListener('click', (e) => {
         e.preventDefault();
+        navLinks.forEach((l) => {
+          l.classList.remove('active');
+        });
+        link.classList.add('active');
+
         const selectedSection = document.querySelector('#main-section');
         contentSections.forEach((section) => {
           section.classList.remove('content-show');
@@ -121,6 +132,10 @@ navLinks.forEach((link, key) => {
     case 1: // List link selected
       link.addEventListener('click', (e) => {
         e.preventDefault();
+        navLinks.forEach((l) => {
+          l.classList.remove('active');
+        });
+        link.classList.add('active');
         const selectedSection = document.querySelector('#new-book-section');
         contentSections.forEach((section) => {
           section.classList.remove('content-show');
@@ -133,6 +148,10 @@ navLinks.forEach((link, key) => {
     case 2: // List link selected
       link.addEventListener('click', (e) => {
         e.preventDefault();
+        navLinks.forEach((l) => {
+          l.classList.remove('active');
+        });
+        link.classList.add('active');
         const selectedSection = document.querySelector('#contact-section');
         contentSections.forEach((section) => {
           section.classList.remove('content-show');
@@ -150,12 +169,6 @@ navLinks.forEach((link, key) => {
 const books = new BookCollection();
 
 // Local Storage
-function setInputs() {
-  const booksArr = JSON.parse(localStorage.getItem('books'));
-  books.setBooks(booksArr);
-}
-
-
 
 function storageAvailable(type) {
   let storage;
@@ -184,13 +197,12 @@ function storageAvailable(type) {
 if (storageAvailable('localStorage')) {
   // Yippee! We can use localStorage awesomeness
   if (!localStorage.getItem('books')) {
-    populateStorage();
+    books.populateStorage();
   } else {
-    setInputs();
+    books.setInputs();
   }
 }
-
-setInputs();
+books.setInputs();
 books.renderList();
 
 addBookForm.addEventListener('submit', (e) => e.preventDefault());
@@ -201,7 +213,7 @@ addBookBtn.addEventListener('click', () => {
   const book = new Book(title.value, author.value);
   books.add(book);
   books.renderList();
-  populateStorage();
+  books.populateStorage();
   title.value = '';
   author.value = '';
 });
