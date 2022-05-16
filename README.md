@@ -6,10 +6,6 @@
 
 - HTML, CSS, JavaScript
 
-## Getting Started
-
-**Download the files into you repo and you will be good to go.**
-
 ### Install
 
 1. git clone https://github.com/mnekx/awesome-books.git
