@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+main {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+nav,
+footer {
+  justify-content: space-between;
+  align-items: baseline;
+  border: 1px solid black;
+  padding: 0.7rem 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+}
+
+nav li {
+  border-right: 1px solid black;
+}
+
+nav li:last-of-type {
+  border-right: none;
+}
+
+fieldset {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 22rem;
+  height: 8rem;
+  border: none;
+}
+
+legend {
+  width: 100%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 98vw;
+  margin-bottom: 0.7rem;
+}
+
+.content {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  transition: left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item {
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.2rem;
+  transition: all 1s ease-out;
+  height: auto;
+  opacity: 1;
+}
+
+.item-remove {
+  padding: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.remove-book-li {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: display 2s ease-out;
+}
+
+#main-section ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  border: 1px solid black;
+}
+
+#main-section li:nth-child(even) {
+  background-color: #ddd;
+}
+
+#add-book {
+  margin-left: 45%;
+}

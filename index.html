@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesonme Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/utility.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="d-flex">
+        <a href="./index.html" class="logo"><strong>Awesome Books</strong></a>
+        <ul class="d-flex">
+          <li><a href="" class="nav-link">List</a></li>
+          <li>
+            <a href="" class="nav-link">Add new</a>
+          </li>
+          <li>
+            <a href="" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <p id="date"></p>
+    </header>
+    <main class="d-flex">
+      <section id="main-section" class="content d-flex">
+        <hgroup>
+          <h1>All Awesome Books</h1>
+        </hgroup>
+      </section>
+
+      <section id="new-book-section" class="content content-hide d-flex">
+        <form id="add-book-form" action="#">
+          <fieldset class="d-flex">
+            <legend>Add new book</legend>
+            <label for="title">
+              <input type="text" placeholder="Title" id="title" required />
+            </label>
+            <label for="author">
+              <input type="text" placeholder="Author" id="author" required />
+            </label>
+            <button id="add-book" type="submit" class="btn add-btn">Add</button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="contact-section" class="content content content-hide d-flex">
+        <h1>Contact information</h1>
+        <p>
+          Do have any questions or just want to say "Hello"? you can reach out
+          to us !
+        </p>
+        <ul>
+          <li>Our email : souadelmansouri2018@gmail.com</li>
+          <li>Our phone : 0999999999</li>
+          <li>Our address : skiidjdznd n° LKSDNSKmlk</li>
+        </ul>
+      </section>
+    </main>
+    <footer><strong>Copyright</strong></footer>
+    <script src="./js/dynamics.js"></script>
+  </body>
+</html>
